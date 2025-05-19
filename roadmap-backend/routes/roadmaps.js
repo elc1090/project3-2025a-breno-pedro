@@ -4,40 +4,55 @@ const Roadmap = require('../models/Roadmap');
 
 // Criar roadmap
 router.post('/', async (req, res) => {
-  const { titulo, conteudo, autor } = req.body;
-
   try {
-    const novoRoadmap = new Roadmap({ titulo, conteudo, autor });
-    await novoRoadmap.save();
-    res.status(201).json(novoRoadmap);
-  } catch (error) {
-    res.status(400).json({ erro: 'Erro ao criar roadmap' });
+    const roadmap = new Roadmap(req.body);
+    await roadmap.save();
+    res.status(201).json(roadmap);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
   }
 });
 
 // Listar todos os roadmaps
 router.get('/', async (req, res) => {
-  const roadmaps = await Roadmap.find().populate('autor', 'nome login');
-  res.json(roadmaps);
+  try {
+    const roadmaps = await Roadmap.find();
+    res.json(roadmaps);
+  } catch (err) {
+    res.status(500).json({ error: 'Erro ao buscar roadmaps.' });
+  }
+});
+
+// Buscar roadmap por ID
+router.get('/:id', async (req, res) => {
+  try {
+    const roadmap = await Roadmap.findById(req.params.id);
+    if (!roadmap) return res.status(404).json({ error: 'Roadmap não encontrado.' });
+    res.json(roadmap);
+  } catch (err) {
+    res.status(500).json({ error: 'Erro ao buscar roadmap.' });
+  }
 });
 
 // Atualizar roadmap
 router.put('/:id', async (req, res) => {
   try {
-    const atualizado = await Roadmap.findByIdAndUpdate(req.params.id, req.body, { new: true });
-    res.json(atualizado);
-  } catch (error) {
-    res.status(400).json({ erro: 'Erro ao atualizar roadmap' });
+    const roadmap = await Roadmap.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    if (!roadmap) return res.status(404).json({ error: 'Roadmap não encontrado.' });
+    res.json(roadmap);
+  } catch (err) {
+    res.status(500).json({ error: 'Erro ao atualizar roadmap.' });
   }
 });
 
-// Deletar roadmap
+// Deleta roadmap
 router.delete('/:id', async (req, res) => {
   try {
-    await Roadmap.findByIdAndDelete(req.params.id);
-    res.json({ mensagem: 'Roadmap removido' });
-  } catch (error) {
-    res.status(400).json({ erro: 'Erro ao deletar roadmap' });
+    const roadmap = await Roadmap.findByIdAndDelete(req.params.id);
+    if (!roadmap) return res.status(404).json({ error: 'Roadmap não encontrado.' });
+    res.json({ mensagem: 'Roadmap removido com sucesso.' });
+  } catch (err) {
+    res.status(500).json({ error: 'Erro ao deletar roadmap.' });
   }
 });
 
