@@ -5,6 +5,11 @@ const RoadmapSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  autor: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Usuario', 
+    required: true
+  },
   descricao: {
     type: String
   },

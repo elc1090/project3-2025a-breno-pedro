@@ -1,10 +1,18 @@
 const express = require('express');
 const router = express.Router();
 const Roadmap = require('../models/Roadmap');
+const User = require('../models/Usuario');
 
 // Criar roadmap
 router.post('/', async (req, res) => {
   try {
+    const { autor } = req.body;
+
+    const autorExiste = await User.findById(autor);
+    if (!autorExiste) {
+      return res.status(400).json({ error: 'Autor não encontrado.' });
+    }
+
     const roadmap = new Roadmap(req.body);
     await roadmap.save();
     res.status(201).json(roadmap);
@@ -13,6 +21,7 @@ router.post('/', async (req, res) => {
   }
 });
 
+
 // Listar todos os roadmaps
 router.get('/', async (req, res) => {
   try {
@@ -20,6 +29,17 @@ router.get('/', async (req, res) => {
     res.json(roadmaps);
   } catch (err) {
     res.status(500).json({ error: 'Erro ao buscar roadmaps.' });
+  }
+});
+
+// Listar todos os roadmaps de um autor especifico
+router.get('/autor/:autorId', async (req, res) => {
+  try {
+    const { autorId } = req.params;
+    const roadmaps = await Roadmap.find({ autor: autorId });
+    res.json(roadmaps);
+  } catch (err) {
+    res.status(500).json({ error: 'Erro ao buscar roadmaps do autor.' });
   }
 });
 
