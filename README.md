@@ -1,56 +1,65 @@
-# Projeto: Aplicação web com persistência de dados do lado do servidor
+![Screenshot do projeto](/assets/Captura%20de%20tela%202025-05-26%20200914.png)
+![Screenshot do projeto](/assets/Captura%20de%20tela%202025-05-26%20200847.png)
 
-> 1. Baixe este arquivo e edite o texto em formato Markdown conforme as instruções a seguir.
-> 2. Substitua todos os trechos de texto iniciados com "Substitua" por informações do seu projeto, conforme solicitado em cada trecho.
-> 3. Substitua a imagem por um screenshot do projeto (arquivo pode ser armazenado no repositório ou em URL externa). GIFs animados também são permitidos!
-> 4. Remova todas as instruções de entrega.
-> 5. Double-check: Certifique-se de que seu README.md não contenha instruções de entrega!
-> 6. Entregue este README.md dentro da pasta raiz do repositório de entrega.
-> Opcional: é permitido alterar a formatação do README, desde que sejam mantidas todas as informações solicitadas (tudo bem adicionar mais informações)
+## Repositório Front-End
+[https://github.com/Akunozz/Front-t3-web](https://github.com/Akunozz/Front-t3-web)
 
-![Substitua a imagem ao lado por um screenshot do seu projeto](https://mdswanson.com/static/chops-ux-step-4.png "Screenshot do projeto")
+## Acesso ao Projeto
+[https://roadmap-eta-one.vercel.app/](https://roadmap-eta-one.vercel.app/)
 
-Repositório Front-End: https://github.com/Akunozz/Front-t3-web
+## Desenvolvedores:
 
-Acesso: Substitua este texto pela URL de deploy do projeto
+- Breno Rosa  
+- Pedro H. Jovanowichs  
+Ambos estudantes de Sistemas de Informação.
 
+## Nosso produto:
 
-### Desenvolvedores
-Substitua este texto pela identificação da dupla: nomes e cursos
+Desenvolvemos uma aplicação web de criação e gerenciamento de **roadmaps de aprendizado**, com foco no **compartilhamento de conhecimento**. A aplicação permite que usuários criem seus próprios planos de estudo e compartilhem com outros usuários.
 
+### Funcionalidades:
 
-### Nosso produto
+- Login de usuários.
+- Criação, edição e exclusão de roadmaps.
+- Visualização de todos os roadmaps públicos.
+- Campo de pesquisa para buscar roadmaps pelo título.
+- Filtro para visualizar apenas os roadmaps do usuário logado.
 
-Substitua este texto por uma descrição do que foi produzido: funcionalidades e relação com a temática "Compartilhamento"
+## Desenvolvimento:
 
+O projeto foi dividido entre front-end e back-end. O front-end foi desenvolvido em Next.js com Tailwind CSS. O back-end foi desenvolvido em Node.js com Express e MongoDB Atlas para persistência dos dados.
 
+Uma das decisões principais foi associar cada roadmap ao `id` do usuário criador, permitindo o filtro correto por autor. A autenticação simples também foi suficiente para as funcionalidades propostas, sem necessidade de tokens avançados.
 
-### Desenvolvimento
+## Tecnologias
 
-Substitua este texto por uma descrição do processo de desenvolvimento, explicando decisões tomadas e etapas do trabalho.
+### Front-End:
+- Next.js
+- React
+- Tailwind CSS
+- Vercel (deploy)
 
+### Back-End:
+- Node.js
+- Express
+- MongoDB Atlas
+- Mongoose
+- Render (deploy)
 
-#### Tecnologias
+## Ambiente de desenvolvimento
+- Visual Studio Code
+- Extensões: Prettier, ESLint, Tailwind CSS IntelliSense
 
-Substitua este trecho por uma lista detalhada de tecnologias usadas (tanto as básicas, como HTML e CSS, como as mais específicas, por exemplo algum framework, biblioteca, etc.):
-- ...
-- ...
-- 
+## Referências e créditos
 
-#### Ambiente de desenvolvimento
-
-Substitua este trecho por uma lista detalhada dos ambientes/ferramentas de desenvolvimento utilizadas (por exemplo, VS Code + alguma extensão, etc.)
-- ...
-- ...
-
-#### Referências e créditos
-
-Substitua este trecho por uma lista bem detalhada de todo material consultado para ajudar no projeto, por exemplo:  URL de templates usados, URL de icon kits usados, créditos para colegas que colaboraram, geradores de código (incluindo alguns prompts usados para o ChatGPT, se for o caso)
-- ...
-- ...
-
-
-
+- [Next.js Documentation](https://nextjs.org/docs)
+- [MongoDB + Mongoose Documentation](https://mongoosejs.com/docs/)
+- [Tailwind CSS Docs](https://tailwindcss.com/docs)
+- [Vercel Documentation](https://vercel.com/docs)
+- [Render Documentation](https://render.com/docs)
+- [Lucide Icons](https://lucide.dev/)
+- ChatGPT para auxílio com rotas, integração com MongoDB e autenticação
 
 ---
+
 Projeto entregue para a disciplina de [Desenvolvimento de Software para a Web](http://github.com/andreainfufsm/elc1090-2025a) em 2025a
